@@ -61,32 +61,21 @@ public:
     //Implementation of setters
 
     //Size entered must be large, small, or medium
-    void setSize() {
-        bool properSize = false;
-        string s = "";
-        while (!properSize) {
-            cin >> s;
-            if (s == "large" || s == "small" || s == "medium") {
-                size = s;
-                properSize = true;
-            }
-            else {
-                cout << "Please size enter exactly as prompted.\n";
-            }
-        }
+    void setSize(string s) {
+        
+        if (s == "large" || s == "small" || s == "medium")
+            size = s;
+        else
+            size = "";        
     }
 
     //Name can be anything
-    void setName() {
-        string n = "";
-        cin >> n;
+    void setName(string n) {        
         name = n;
     }
 
     //Breed can be anything
-    void setBreed() {
-        string b = "";
-        cin >> b;
+    void setBreed(string b) {
         breed = b;
     }
 
@@ -107,23 +96,36 @@ public:
 
 int main(){
     Dog newDog;
+    string name, size, breed;
     cout << "Darren Butler\n\n";
-
    
     //Choose size
     cout << "How big a dog do you want? (large, small, medium) Enter exactly: ";
-    newDog.setSize();
+    
+    //Make the user enter values until the use correct input
+    bool correctInput = false;
+    while (!correctInput) 
+    {
+        cin >> size;
+        newDog.setSize(size);
+        if (size == "large" || size == "small" || size == "medium")
+            correctInput = true;
+        else
+            cout << "Please enter exactly as prompted.\n";
+    }    
     cout << "Cool. You want a " << newDog.getSize() << " dog\n";
 
     //Choose breed
     cout << "What breed of dog do you want?: ";
-    newDog.setBreed();
+    cin >> breed;
+    newDog.setBreed(breed);
     cout << newDog.getBreed() << "s are cool!\n";
     system("pause");
 
     //Choose name
     cout << "Enter a name for your dog: ";
-    newDog.setName();
+    cin >> name;
+    newDog.setName(name);
     cout << newDog.getName() << " is an awsome name!\n";
     system("pause");
 
