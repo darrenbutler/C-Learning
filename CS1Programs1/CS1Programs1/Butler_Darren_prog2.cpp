@@ -101,6 +101,7 @@ public:
     ~Dog()
     {
         cout << "In the destructor\n";
+        system("pause");
     }
 };
 
