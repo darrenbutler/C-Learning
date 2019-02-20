@@ -97,6 +97,11 @@ public:
     void run() {
         cout << name << " is running so fast!\n";
     }
+
+    ~Dog()
+    {
+        cout << "In the destructor\n";
+    }
 };
 
 int main(){
@@ -104,16 +109,18 @@ int main(){
     cout << "Darren Butler\n\n";
 
    
-
+    //Choose size
     cout << "How big a dog do you want? (large, small, medium) Enter exactly: ";
     newDog.setSize();
     cout << "Cool. You want a " << newDog.getSize() << " dog\n";
 
+    //Choose breed
     cout << "What breed of dog do you want?: ";
     newDog.setBreed();
     cout << newDog.getBreed() << "s are cool!\n";
     system("pause");
 
+    //Choose name
     cout << "Enter a name for your dog: ";
     newDog.setName();
     cout << newDog.getName() << " is an awsome name!\n";
